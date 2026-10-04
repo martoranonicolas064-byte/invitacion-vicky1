@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victoria Cumple 15 - Invitación Digital Elegante</title>
+
+  <!-- SEO & Meta -->
+  <meta name="description"
+    content="Invitación digital elegante y sofisticada para los 15 años de Victoria. 21 de Diciembre.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       DESIGN SYSTEM & CSS VARIABLES (ROJO VINO & ORO ELEGANTE)
+       ========================================== */
+    :root {
+      --bg-dark: #120306;
+      --wine-dark: #2a040a;
+      --wine-main: #580b18;
+      --wine-medium: #801426;
+      --wine-accent: #a81c35;
+      --wine-light: #c92c47;
+      --champagne-light: #fef8eb;
+      --champagne-gold: #e5c170;
+      --gold-dark: #d4af37;
+      --gold-bright: #ffe599;
+      --gold-gradient: linear-gradient(135deg, #ffe599 0%, #d4af37 50%, #a67c1e 100%);
+      --gold-text-gradient: linear-gradient(135deg, #fff8dc 0%, #f7d785 40%, #d4af37 100%);
+      --wine-gradient: linear-gradient(165deg, #3d060f 0%, #610d1c 50%, #290308 100%);
+      --card-glass: rgba(50, 6, 14, 0.78);
+      --text-light: #fce8eb;
+      --text-muted: #dcaab3;
+      --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.35);
+      --shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.6);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(168, 28, 53, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.25) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(18, 3, 6, 0.98) 0%, #0d0103 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 10px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Background Canvas for Sparkles & Floating Stars */
+    #bg-stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Container for Digital Invitation (Mobile-first vertical layout) */
+    .invitation-card {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(175deg, #2e050c 0%, #4a0914 35%, #680e1e 70%, #200206 100%);
+      border-radius: 32px;
+      box-shadow:
+        0 0 0 2px rgba(212, 175, 55, 0.6),
+        0 20px 60px rgba(0, 0, 0, 0.85),
+        0 0 50px rgba(168, 28, 53, 0.5);
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+      border: 2px solid rgba(229, 193, 112, 0.7);
+      animation: fadeInCard 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeInCard {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Outer Frame Ornamental Corner Accent */
+    .corner-decor {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      pointer-events: none;
+      z-index: 12;
+      opacity: 0.85;
+    }
+
+    .corner-top-left {
+      top: 12px;
+      left: 12px;
+      border-top: 2px solid var(--champagne-gold);
+      border-left: 2px solid var(--champagne-gold);
+      border-top-left-radius: 12px;
+    }
+
+    .corner-top-right {
+      top: 12px;
+      right: 12px;
+      border-top: 2px solid var(--champagne-gold);
+      border-right: 2px solid var(--champagne-gold);
+      border-top-right-radius: 12px;
+    }
+
+    .corner-bottom-left {
+      bottom: 12px;
+      left: 12px;
+      border-bottom: 2px solid var(--champagne-gold);
+      border-left: 2px solid var(--champagne-gold);
+      border-bottom-left-radius: 12px;
+    }
+
+    .corner-bottom-right {
+      bottom: 12px;
+      right: 12px;
+      border-bottom: 2px solid var(--champagne-gold);
+      border-right: 2px solid var(--champagne-gold);
+      border-bottom-right-radius: 12px;
+    }
+
+    /* Interactive Envelope Cover Modal / Intro Overlay */
+    .envelope-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(14, 2, 5, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .envelope-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-box {
+      background: linear-gradient(145deg, #3b0610, #1f0206);
+      border: 2px solid var(--champagne-gold);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 380px;
+      width: 90%;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(229, 193, 112, 0.4);
+      position: relative;
+    }
+
+    .seal-icon {
+      width: 75px;
+      height: 75px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5), 0 0 15px rgba(255, 229, 153, 0.4);
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.4rem;
+      color: #2a040a;
+      font-weight: 800;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.4);
+      animation: pulseSeal 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseSeal {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+      }
+
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 8px 35px rgba(201, 44, 71, 0.8), 0 0 20px rgba(255, 229, 153, 0.6);
+      }
+    }
+
+    .envelope-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.4rem;
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    .envelope-subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      letter-spacing: 4px;
+      color: var(--champagne-gold);
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .btn-open {
+      background: var(--gold-gradient);
+      color: #2a040a;
+      border: none;
+      padding: 14px 32px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-open:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 12px 35px rgba(255, 229, 153, 0.7);
+    }
+
+    /* Floating Music Control Switch */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 90;
+      width: 48px;
+      height: 48px;
+      background: var(--gold-gradient);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      color: #2a040a;
+      font-weight: bold;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* ==========================================
+       HERO SECTION
+       ========================================== */
+    .hero-section {
+      padding: 50px 25px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .tiara-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 10px;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(255, 229, 153, 0.6));
+      animation: floatCrown 3s ease-in-out infinite;
+    }
+
+    @keyframes floatCrown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .event-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--champagne-gold);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+      text-shadow: 0 0 10px rgba(229, 193, 112, 0.3);
+    }
+
+    .main-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 5rem;
+      line-height: 1.1;
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+    }
+
+    .main-phrase {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #fce8eb;
+      font-weight: 600;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    /* BEAUTIFUL QUOTE CARD SECTION */
+    .quote-card {
+      background: rgba(50, 6, 14, 0.65);
+      border: 1.5px solid rgba(229, 193, 112, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 22px 20px;
+      margin: 20px auto 25px;
+      max-width: 390px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(168, 28, 53, 0.25);
+      position: relative;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #fff3cd;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .quote-icon-top {
+      font-size: 1.6rem;
+      color: var(--champagne-gold);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .date-badge {
+      display: inline-block;
+      padding: 10px 26px;
+      background: rgba(128, 20, 38, 0.5);
+      border: 1.5px solid var(--champagne-gold);
+      border-radius: 25px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--champagne-gold);
+      letter-spacing: 3px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(229, 193, 112, 0.2);
+    }
+
+    /* Decorative Divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px auto;
+      width: 70%;
+    }
+
+    .divider-line {
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
+    }
+
+    .divider-star {
+      color: var(--champagne-gold);
+      font-size: 14px;
+    }
+
+    /* ==========================================
+       PHOTO FRAMES SECTION
+       ========================================== */
+    .photo-section {
+      padding: 0 25px 30px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      font-size: 1.15rem;
+      letter-spacing: 3.5px;
+      color: var(--champagne-gold);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Photo Frame 1: Main Feature Portrait */
+    .main-photo-wrapper {
+      position: relative;
+      width: 240px;
+      height: 320px;
+      margin: 0 auto 30px;
+      border-radius: 120px 120px 20px 20px;
+      padding: 8px;
+      background: var(--gold-gradient);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(229, 193, 112, 0.4);
+      transition: transform 0.4s ease;
+    }
+
+    .main-photo-wrapper:hover {
+      transform: scale(1.02);
+    }
+
+    .main-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 114px 114px 14px 14px;
+      overflow: hidden;
+      position: relative;
+      background: #1a0306;
+      border: 3px solid #2a040a;
+    }
+
+    .main-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 18% center;
+      display: block;
+      transition: filter 0.3s ease;
+    }
+
+    #img-photo-1 {
+      object-fit: cover;
+      object-position: 18% center;
+    }
+
+    #img-photo-2 {
+      object-fit: cover;
+      object-position: center 20%;
+    }
+
+    #img-photo-3 {
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* Secondary Photos Grid */
+    .photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .secondary-photo-wrapper {
+      position: relative;
+      height: 170px;
+      border-radius: 20px;
+      padding: 5px;
+      background: var(--gold-gradient);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(229, 193, 112, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .secondary-photo-wrapper:hover {
+      transform: translateY(-4px);
+    }
+
+    .secondary-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: #1a0306;
+      border: 2px solid #2a040a;
+    }
+
+    .secondary-photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption {
+      font-size: 0.78rem;
+      text-align: center;
+      color: var(--champagne-gold);
+      margin-top: 8px;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* ==========================================
+       COUNTDOWN TIMER SECTION
+       ========================================== */
+    .countdown-section {
+      padding: 30px 25px;
+      background: linear-gradient(135deg, rgba(88, 11, 24, 0.5) 0%, rgba(35, 3, 8, 0.8) 100%);
+      border-top: 1px solid rgba(229, 193, 112, 0.4);
+      border-bottom: 1px solid rgba(229, 193, 112, 0.4);
+      text-align: center;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .timer-card {
+      background: rgba(35, 3, 8, 0.85);
+      border: 1.5px solid rgba(229, 193, 112, 0.5);
+      border-radius: 16px;
+      padding: 12px 6px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(168, 28, 53, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .timer-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--champagne-gold);
+    }
+
+    .timer-number {
+      font-family: 'Cinzel', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .timer-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* ==========================================
+       INTERACTIVE CALENDAR SECTION
+       ========================================== */
+    .calendar-section {
+      padding: 30px 25px;
+      text-align: center;
+    }
+
+    .calendar-card {
+      background: rgba(35, 3, 8, 0.85);
+      border-radius: 20px;
+      padding: 22px 20px;
+      border: 1.5px solid rgba(229, 193, 112, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(88, 11, 24, 0.4);
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .calendar-header {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: var(--champagne-gold);
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+    }
+
+    .calendar-days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--champagne-gold);
+      text-transform: uppercase;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      border-radius: 50%;
+      font-weight: 500;
+    }
+
+    .cal-day.empty {
+      visibility: hidden;
+    }
+
+    /* Highlighted Day 21 */
+    .cal-day.highlight-21 {
+      background: var(--gold-gradient);
+      color: #2a040a;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 4px 18px rgba(229, 193, 112, 0.8), 0 0 10px rgba(255, 229, 153, 0.6);
+      position: relative;
+      animation: pulse21 2s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    .cal-day.highlight-21::after {
+      content: '✨';
+      position: absolute;
+      top: -8px;
+      right: -6px;
+      font-size: 10px;
+    }
+
+    @keyframes pulse21 {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 18px rgba(229, 193, 112, 0.8);
+      }
+
+      50% {
+        transform: scale(1.15);
+        box-shadow: 0 6px 25px rgba(201, 44, 71, 0.9), 0 0 15px rgba(255, 229, 153, 0.8);
+      }
+    }
+
+    .cal-note {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--champagne-gold);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* ==========================================
+       EVENT DETAILS (Hora y Lugar)
+       ========================================== */
+    .details-section {
+      padding: 30px 25px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(88, 11, 24, 0.4) 100%);
+    }
+
+    .details-card {
+      background: rgba(35, 3, 8, 0.85);
+      border-radius: 24px;
+      padding: 25px 20px;
+      border: 1.5px solid rgba(229, 193, 112, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .detail-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(128, 20, 38, 0.4);
+      border: 1.5px solid rgba(229, 193, 112, 0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .detail-content {
+      flex: 1;
+    }
+
+    .detail-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: var(--champagne-gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .editable-field {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ==========================================
+       FOOTER & RSVP
+       ========================================== */
+    .footer-section {
+      padding: 30px 25px 40px;
+      text-align: center;
+    }
+
+    .btn-rsvp {
+      width: 100%;
+      max-width: 320px;
+      padding: 16px 24px;
+      background: var(--gold-gradient);
+      border: none;
+      border-radius: 30px;
+      color: #2a040a;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-rsvp:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 35px rgba(255, 229, 153, 0.7);
+    }
+
+    .closing-phrase {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.7rem;
+      color: var(--champagne-gold);
+      margin-top: 25px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .credits {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Modal dialog for RSVP */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 2, 5, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 120;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: linear-gradient(145deg, #3b0610, #1f0206);
+      border-radius: 24px;
+      padding: 30px 25px;
+      max-width: 400px;
+      width: 100%;
+      border: 1.5px solid var(--champagne-gold);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(229, 193, 112, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(229, 193, 112, 0.6);
+      border-radius: 12px;
+      background: rgba(20, 2, 5, 0.6);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      margin: 15px 0 20px;
+      outline: none;
+    }
+
+    .modal-input:focus {
+      border-color: var(--champagne-gold);
+    }
+
+    /* Confetti Canvas */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 150;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 400px) {
+      .main-name {
+        font-size: 4rem;
+      }
+
+      .timer-number {
+        font-size: 1.3rem;
+      }
+
+      .main-photo-wrapper {
+        width: 210px;
+        height: 280px;
+      }
+
+      .envelope-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Stars & Particles Canvas -->
+  <canvas id="bg-stars"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Interactive Envelope / Welcome Reveal Modal -->
+  <div class="envelope-overlay" id="envelope-overlay">
+    <div class="envelope-box">
+      <div class="seal-icon">V</div>
+      <h1 class="envelope-title">Victoria</h1>
+      <p class="envelope-subtitle">Mis 15 Años</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 25px;">
+        Te invito a abrir esta tarjeta tan especial ✨
+      </p>
+      <button class="btn-open" id="btn-open-card">
+        <span>Abrir Invitación</span> ✨
+      </button>
+    </div>
+  </div>
+
+  <!-- Audio Toggle Button -->
+  <button class="music-btn" id="music-toggle" title="Música de fondo">
+    <span id="music-icon">🎵</span>
+  </button>
+
+  <!-- MAIN INVITATION CARD (Mobile-First Vertical Layout) -->
+  <main class="invitation-card" id="invitation-card">
+
+    <!-- Outer Ornamental Gold Corners -->
+    <div class="corner-decor corner-top-left"></div>
+    <div class="corner-decor corner-top-right"></div>
+    <div class="corner-decor corner-bottom-left"></div>
+    <div class="corner-decor corner-bottom-right"></div>
+
+    <!-- HERO / TITLE SECTION -->
+    <section class="hero-section">
+      <!-- Crown Graphic Accent -->
+      <svg class="tiara-icon" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 10L62 38L88 22L76 65H24L12 22L38 38L50 10Z" fill="url(#tiaraGold)" stroke="#d4af37"
+          stroke-width="2" />
+        <circle cx="50" cy="8" r="4" fill="#fff" stroke="#d4af37" />
+        <circle cx="12" cy="20" r="3" fill="#fff" stroke="#d4af37" />
+        <circle cx="88" cy="20" r="3" fill="#fff" stroke="#d4af37" />
+        <defs>
+          <linearGradient id="tiaraGold" x1="0" y1="0" x2="100" y2="80" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FCEB9F" />
+            <stop offset="0.5" stop-color="#E5C170" />
+            <stop offset="1" stop-color="#B88E36" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <span class="event-tag">Mis 15 Años</span>
+      <h1 class="main-name">Victoria</h1>
+      <div class="main-phrase">Victoria cumple 15</div>
+
+      <!-- BEAUTIFUL QUOTE CARD -->
+      <div class="quote-card">
+        <span class="quote-icon-top">✨</span>
+        <p class="quote-text">
+          “Hay momentos en la vida que son inolvidables, pero compartirlos con las personas que más quiero los hace eternos. Te espero para celebrar juntos mi noche mágica.”
+        </p>
+      </div>
+
+      <div class="date-badge">21 de Diciembre</div>
+
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span class="divider-star">✦</span>
+        <div class="divider-line"></div>
+      </div>
+    </section>
+
+    <!-- PHOTO GALLERY SECTION (3 Elegant Frames) -->
+    <section class="photo-section">
+      <h2 class="section-title">Fotografías</h2>
+
+      <!-- PHOTO 1: MAIN PORTRAIT PHOTO FRAME -->
+      <div class="main-photo-wrapper">
+        <div class="main-photo-inner">
+          <img id="img-photo-1" src="assets/victoria_1.jpeg" alt="Foto principal de Victoria">
+        </div>
+      </div>
+
+      <!-- SECONDARY PHOTOS GRID (PHOTOS 2 & 3) -->
+      <div class="photos-grid">
+
+        <!-- PHOTO 2 FRAME -->
+        <div>
+          <div class="secondary-photo-wrapper">
+            <div class="secondary-photo-inner">
+              <img id="img-photo-2" src="assets/victoria_2.jpeg" alt="Segunda foto de Victoria">
+            </div>
+          </div>
+          <div class="photo-caption">Momentos mágicos</div>
+        </div>
+
+        <!-- PHOTO 3 FRAME -->
+        <div>
+          <div class="secondary-photo-wrapper">
+            <div class="secondary-photo-inner">
+              <img id="img-photo-3" src="assets/victoria_3.jpeg" alt="Tercera foto de Victoria">
+            </div>
+          </div>
+          <div class="photo-caption">Celebración</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COUNTDOWN TIMER SECTION -->
+    <section class="countdown-section">
+      <h2 class="section-title" style="margin-bottom: 8px;">Faltan Tan Solo</h2>
+      <p style="font-size: 0.8rem; color: var(--text-muted);">para la gran fiesta del 21 de Diciembre</p>
+
+      <div class="countdown-grid">
+        <div class="timer-card">
+          <div class="timer-number" id="timer-days">00</div>
+          <div class="timer-label">Días</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="timer-hours">00</div>
+          <div class="timer-label">Hs</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="timer-minutes">00</div>
+          <div class="timer-label">Min</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="timer-seconds">00</div>
+          <div class="timer-label">Seg</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CALENDAR SECTION -->
+    <section class="calendar-section">
+      <h2 class="section-title">Reserva la Fecha</h2>
+
+      <div class="calendar-card">
+        <div class="calendar-header">
+          <span>‹</span>
+          <span>Diciembre</span>
+          <span>›</span>
+        </div>
+
+        <div class="calendar-days-header">
+          <span>Do</span><span>Lu</span><span>Ma</span><span>Mi</span><span>Ju</span><span>Vi</span><span>Sá</span>
+        </div>
+
+        <!-- December 2026 Grid (December 1 is Tuesday) -->
+        <div class="calendar-grid">
+          <!-- Offset empty days -->
+          <div class="cal-day empty"></div>
+
+          <!-- Days 1 to 31 -->
+          <div class="cal-day">1</div>
+          <div class="cal-day">2</div>
+          <div class="cal-day">3</div>
+          <div class="cal-day">4</div>
+          <div class="cal-day">5</div>
+          <div class="cal-day">6</div>
+          <div class="cal-day">7</div>
+          <div class="cal-day">8</div>
+          <div class="cal-day">9</div>
+          <div class="cal-day">10</div>
+          <div class="cal-day">11</div>
+          <div class="cal-day">12</div>
+          <div class="cal-day">13</div>
+          <div class="cal-day">14</div>
+          <div class="cal-day">15</div>
+          <div class="cal-day">16</div>
+          <div class="cal-day">17</div>
+          <div class="cal-day">18</div>
+          <div class="cal-day">19</div>
+          <div class="cal-day">20</div>
+
+          <!-- HIGHLIGHTED DAY 21 -->
+          <div class="cal-day highlight-21" id="cal-21" title="¡El cumple de Victoria!" onclick="burstConfetti()">21
+          </div>
+
+          <div class="cal-day">22</div>
+          <div class="cal-day">23</div>
+          <div class="cal-day">24</div>
+          <div class="cal-day">25</div>
+          <div class="cal-day">26</div>
+          <div class="cal-day">27</div>
+          <div class="cal-day">28</div>
+          <div class="cal-day">29</div>
+          <div class="cal-day">30</div>
+          <div class="cal-day">31</div>
+        </div>
+
+        <div class="cal-note">
+          <span>👑</span> ¡21 de Diciembre - El Gran Día!
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT DETAILS (HORARIO, DIRECCIÓN Y PASES) -->
+    <section class="details-section">
+      <h2 class="section-title">Ubicación y Horario</h2>
+
+      <div class="details-card">
+        <!-- HORARIO -->
+        <div class="detail-item">
+          <div class="detail-icon">⏰</div>
+          <div class="detail-content">
+            <div class="detail-label">Horario</div>
+            <div class="editable-field" id="field-hora">19:00 hs pm hasta 01:00 hs am</div>
+          </div>
+        </div>
+
+        <!-- DIRECCION -->
+        <div class="detail-item">
+          <div class="detail-icon">📍</div>
+          <div class="detail-content">
+            <div class="detail-label">Dirección</div>
+            <div class="editable-field" id="field-direccion">Gabriel Ortega 8292</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER & RSVP -->
+    <section class="footer-section">
+      <button class="btn-rsvp" onclick="openRsvpModal()">
+        <span>💌 Confirmar Asistencia</span>
+      </button>
+
+      <div class="closing-phrase">Te espero para celebrar juntos</div>
+      <div class="credits">Victoria ✦ 15 Años</div>
+    </section>
+
+  </main>
+
+  <!-- RSVP MODAL DIALOG -->
+  <div class="modal-backdrop" id="rsvp-modal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeRsvpModal()">✕</button>
+      <h3 style="font-family: 'Cinzel', serif; color: var(--gold-dark); margin-bottom: 10px;">Confirmar Asistencia</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">
+        Por favor ingresa tu nombre completo para confirmar tu presencia a los 15 de Victoria.
+      </p>
+
+      <input type="text" id="guest-name" class="modal-input" placeholder="Tu Nombre y Apellido">
+
+      <button class="btn-rsvp" style="width: 100%;" onclick="sendWhatsappRsvp()">
+        <span>Enviar por WhatsApp</span> 💬
+      </button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    /* ==========================================
+       1. ENVELOPE OPENING & AUDIO CONTROLS
+       ========================================== */
+    const envelopeOverlay = document.getElementById('envelope-overlay');
+    const btnOpenCard = document.getElementById('btn-open-card');
+    const musicBtn = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+
+    let isPlayingAudio = false;
+    let audioCtx = null;
+
+    btnOpenCard.addEventListener('click', () => {
+      envelopeOverlay.classList.add('hidden');
+      burstConfetti();
+      startBackgroundMelody();
+    });
+
+    // Simple Web Audio API Synthesizer Melody for ambient magical background music
+    function startBackgroundMelody() {
+      if (isPlayingAudio) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        isPlayingAudio = true;
+        musicIcon.textContent = '🔊';
+
+        // Gentle background arpeggio chime loop
+        const notes = [523.25, 659.25, 783.99, 1046.50, 880.00, 698.46]; // C5, E5, G5, C6, A5, F5
+        let noteIndex = 0;
+
+        function playNextNote() {
+          if (!isPlayingAudio || !audioCtx) return;
+
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(notes[noteIndex], audioCtx.currentTime);
+
+          gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.8);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start();
+          osc.stop(audioCtx.currentTime + 1.8);
+
+          noteIndex = (noteIndex + 1) % notes.length;
+          setTimeout(playNextNote, 800);
+        }
+        playNextNote();
+      } catch (e) {
+        console.log('Audio init skipped', e);
+      }
+    }
+
+    musicBtn.addEventListener('click', () => {
+      if (isPlayingAudio) {
+        isPlayingAudio = false;
+        if (audioCtx) audioCtx.suspend();
+        musicIcon.textContent = '🔇';
+      } else {
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+          isPlayingAudio = true;
+          musicIcon.textContent = '🔊';
+        } else {
+          startBackgroundMelody();
+        }
+      }
+    });
+
+    /* ==========================================
+       2. BACKGROUND SPARKLES & STARS CANVAS
+       ========================================== */
+    const canvas = document.getElementById('bg-stars');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const numStars = Math.floor((canvas.width * canvas.height) / 9000);
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          size: Math.random() * 2 + 0.8,
+          alpha: Math.random(),
+          speed: Math.random() * 0.02 + 0.005,
+          color: Math.random() > 0.35 ? (Math.random() > 0.5 ? '#e5c170' : '#ffe599') : '#c92c47'
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let star of stars) {
+        star.alpha += star.speed;
+        if (star.alpha > 1 || star.alpha < 0) {
+          star.speed = -star.speed;
+        }
+        ctx.save();
+        ctx.globalAlpha = Math.abs(star.alpha);
+        ctx.fillStyle = star.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = star.color;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+      requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    drawStars();
+
+    /* ==========================================
+       3. COUNTDOWN TIMER LOGIC
+       ========================================== */
+    function updateCountdown() {
+      const now = new Date();
+      let targetYear = now.getFullYear();
+
+      // Check if Dec 21 of current year has already passed
+      let targetDate = new Date(targetYear, 11, 21, 21, 0, 0); // Dec 21, 21:00
+      if (now > targetDate) {
+        targetYear++;
+        targetDate = new Date(targetYear, 11, 21, 21, 0, 0);
+      }
+
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('timer-days').textContent = '00';
+        document.getElementById('timer-hours').textContent = '00';
+        document.getElementById('timer-minutes').textContent = '00';
+        document.getElementById('timer-seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('timer-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('timer-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('timer-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('timer-seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Clear any previous edit/upload cache from localStorage to ensure fixed content displays
+    try {
+      ['photo_1_data', 'photo_2_data', 'photo_3_data', 'vic_15_field-hora', 'vic_15_field-lugar', 'vic_15_field-direccion', 'vic_15_field-dresscode'].forEach(key => localStorage.removeItem(key));
+    } catch(e) {}
+
+    /* ==========================================
+       6. CONFETTI ANIMATION ON CALENDAR / OPEN
+       ========================================== */
+    const cCanvas = document.getElementById('confetti-canvas');
+    const cCtx = cCanvas.getContext('2d');
+    let confettiParticles = [];
+
+    function burstConfetti() {
+      cCanvas.width = window.innerWidth;
+      cCanvas.height = window.innerHeight;
+      confettiParticles = [];
+
+      const colors = ['#c92c47', '#e5c170', '#ffffff', '#ffe599', '#801426', '#d4af37'];
+      for (let i = 0; i < 80; i++) {
+        confettiParticles.push({
+          x: cCanvas.width / 2,
+          y: cCanvas.height / 2,
+          vx: (Math.random() - 0.5) * 12,
+          vy: (Math.random() - 0.7) * 14,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          vRot: (Math.random() - 0.5) * 10,
+          alpha: 1
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+      let alive = false;
+
+      for (let p of confettiParticles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.3; // gravity
+        p.rotation += p.vRot;
+        p.alpha -= 0.015;
+
+        if (p.alpha > 0) {
+          alive = true;
+          cCtx.save();
+          cCtx.globalAlpha = p.alpha;
+          cCtx.translate(p.x, p.y);
+          cCtx.rotate((p.rotation * Math.PI) / 180);
+          cCtx.fillStyle = p.color;
+          cCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+          cCtx.restore();
+        }
+      }
+
+      if (alive) {
+        requestAnimationFrame(animateConfetti);
+      }
+    }
+
+    /* ==========================================
+       7. RSVP MODAL & WHATSAPP GENERATOR
+       ========================================== */
+    function openRsvpModal() {
+      document.getElementById('rsvp-modal').classList.add('active');
+    }
+
+    function closeRsvpModal() {
+      document.getElementById('rsvp-modal').classList.remove('active');
+    }
+
+    function sendWhatsappRsvp() {
+      const name = document.getElementById('guest-name').value.trim();
+      if (!name) {
+        alert('Por favor ingresa tu nombre.');
+        return;
+      }
+      const phoneNumber = '5493543580550';
+      const message = encodeURIComponent(`¡Hola Victoria! Soy ${name}. Confirmo con mucho gusto mi asistencia a tu fiesta de 15 años el 21 de Diciembre. ✨👑`);
+      window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+      closeRsvpModal();
+    }
+  </script>
+</body>
+
+</html>
